@@ -1,14 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <title>AngularJS JumpStart with Dan Wahlin</title>
+    <link rel="stylesheet" href="app/css/style.css">
   </head>
-  <body ng-app>
-    Name: <input type="text" name="name" ng-model="name">
+  <body ng-controller="CustomersController">
+    <h2>Customers</h2>
+    Filter : <input type="text" ng-model="customerFilter.name">
+    <br><br>
+    <table>
+      <tr>
+        <th ng-click="doSort('name')">Name</th>
+        <th ng-click="doSort('city')">City</th>
+        <th ng-click="doSort('orderTotal')">Order Total</th>
+        <th ng-click="doSort('joined')">Joined</th>
+      </tr>
+      <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
+        <td>{{ cust.name }}</td>
+        <td>{{ cust.city }}</td>
+        <td>{{ cust.orderTotal | currency }}</td>
+        <td>{{ cust.joined | date }}</td>
+      </tr>
+    </table>
     <br>
-    {{ name }}
+    <span>Total Customers: {{ customers.length }}</span>
 
     <script src="angular.js"></script>
+    <script src="app/controllers/customersController.js"></script>
   </body>
 </html>
