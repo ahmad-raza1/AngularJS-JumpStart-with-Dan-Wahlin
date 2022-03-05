@@ -1,33 +1,36 @@
 <!DOCTYPE html>
-<html ng-app="customersApp">
-  <head>
-    <meta charset="utf-8">
-    <title>AngularJS JumpStart with Dan Wahlin</title>
-    <link rel="stylesheet" href="app/css/style.css">
-  </head>
-  <body ng-controller="CustomersController">
-    <h2>Customers</h2>
-    Filter : <input type="text" ng-model="customerFilter.name">
-    <br><br>
-    <table>
-      <tr>
-        <th ng-click="doSort('name')">Name</th>
-        <th ng-click="doSort('city')">City</th>
-        <th ng-click="doSort('orderTotal')">Order Total</th>
-        <th ng-click="doSort('joined')">Joined</th>
-      </tr>
-      <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
-        <td>{{ cust.name }}</td>
-        <td>{{ cust.city }}</td>
-        <td>{{ cust.orderTotal | currency }}</td>
-        <td>{{ cust.joined | date }}</td>
-      </tr>
-    </table>
-    <br>
-    <span>Total Customers: {{ customers.length }}</span>
+<html lang="en-US" ng-app="bedManagementApp">
 
-    <script src="angular.js"></script>
-    <script src="app/app.js"></script>
-    <script src="app/controllers/customersController.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS JumpStart with Dan Wahlin</title>
+  <link rel="stylesheet" href="app/css/style.css">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+</head>
+
+<!-- render view via ngRoute -->
+<body ng-view></body>
+
+<script src="angular.js"></script>
+<script src="app/app.js"></script>
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+<!-- Angular Material Library -->
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+<!-- UI Router Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.20/angular-ui-router.js"></script>
+<!-- ng Route Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.2/angular-route.min.js"
+  integrity="sha512-5zOAub3cIpqklnKmM05spv4xttemFDlbBrmRexWiP0aWV8dlayEGciapAjBQWA7lgQsxPY6ay0oIUVtY/pivXA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Controllers -->
+<script src="app/controllers/customersController.js"></script>
+<script src="app/controllers/bedManagementController.js"></script>
+</body>
+
 </html>
