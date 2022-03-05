@@ -1,9 +1,7 @@
 'use-strict';
 (function () {
     class BedManagementController {
-        constructor($scope) {
-            $vm = $scope;
-        }
+        constructor($scope) { }
     }
 
     BedManagementController.$inject = ['$scope'];
