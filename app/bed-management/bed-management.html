@@ -1,5 +1,56 @@
-<div layout="row">
-    <div flex>loem</div>
-    <div flex>loem</div>
-    <div flex>loem</div>
+<div class="container" ng-cloak>
+
+    <div layout="row">
+        <div class="tabs">
+            <md-content>
+                <md-nav-bar layout="row" md-no-ink-bar="true" md-border-bottom="border" md-selected-nav-item="viewBy"
+                    class="border-none" nav-bar-aria-label="navigation links">
+                    <md-nav-item md-nav-click="goto('viewByWard')" name="viewByWard">
+                        Page One
+                    </md-nav-item>
+                    <md-nav-item md-nav-click="goto('viewByRoomType')" name="viewByRoomType">
+                        Page Two
+                    </md-nav-item>
+                    <md-nav-item md-nav-click="goto('viewByBed')" name="viewByBed">
+                        Page Three
+                    </md-nav-item>
+                </md-nav-bar>
+            </md-content>
+        </div>
+        <span flex></span>
+        <button class="create-action">lorem</button>
+    </div>
+
+    <div class="metrics" layout="row" layout-align="space-between center">
+        <div flex="20" layout="column" class="dashboard-status-total">
+            <div class='total-count'>13</div>
+            <div class='total-text'>Waiting</div>
+        </div>
+        <div class="metric-space"></div>
+        <div flex="20" layout="column" class="dashboard-status-waiting">
+            <div class='waiting-count'>13</div>
+            <div class='waiting-text'>Waiting</div>
+        </div>
+        <div class="metric-space"></div>
+        <div flex="20" layout="column" class="dashboard-status-waiting">
+            <div class='waiting-count'>13</div>
+            <div class='waiting-text'>Waiting</div>
+        </div>
+        <div class="metric-space"></div>
+        <div flex="20" layout="column" class="dashboard-status-waiting">
+            <div class='waiting-count'>13</div>
+            <div class='waiting-text'>Waiting</div>
+        </div>
+        <div class="metric-space"></div>
+        <div flex="20" layout="column" class="dashboard-status-blocked">
+            <div class='blocked-count'>06</div>
+            <div class='blocked-text'>Blocked</div>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div ng-show="viewBy==='viewByWard'">viewByWard Div</div>
+    <div ng-show="viewBy==='viewByRoomType'">viewByRoom Div</div>
+    <div ng-show="viewBy==='viewByBed'">viewByBed Div</div>
+
 </div>

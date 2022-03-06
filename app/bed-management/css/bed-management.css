@@ -1,0 +1,70 @@
+.border-none > .md-nav-bar {
+  border: none !important;
+}
+
+.metrics {
+  padding: 0px 15px;
+}
+
+.metric-space {
+  width: 6%;
+}
+
+.font-style, .waiting-count, .waiting-text, .total-count, .total-text, .blocked-count, .blocked-text {
+  font-family: "Lato", Arial !important;
+  text-decoration: none;
+  text-align: left;
+}
+
+.dashboard-status, .dashboard-status-waiting, .dashboard-status-total, .dashboard-status-blocked {
+  padding: 8px;
+  border-radius: 7px;
+}
+
+.metric-count, .waiting-count, .total-count, .blocked-count {
+  font-weight: bold;
+  font-size: 22pt;
+}
+
+.metric-text, .waiting-text, .total-text, .blocked-text {
+  padding-top: 8px;
+  font-size: 9pt;
+  font-weight: 700;
+}
+
+.dashboard-status-waiting {
+  background-color: RGB(255, 152, 0, 0.15);
+}
+
+.waiting-count {
+  color: RGB(255, 152, 0);
+}
+
+.waiting-text {
+  color: RGB(255, 152, 0);
+}
+
+.dashboard-status-total {
+  background-color: RGB(0, 150, 136, 0.15);
+}
+
+.total-count {
+  color: RGB(0, 150, 136);
+}
+
+.total-text {
+  color: RGB(0, 150, 136);
+}
+
+.dashboard-status-blocked {
+  background-color: RGB(244, 67, 54, 0.15);
+}
+
+.blocked-count {
+  color: RGB(244, 67, 54);
+}
+
+.blocked-text {
+  color: RGB(244, 67, 54);
+}
+/*# sourceMappingURL=bed-management.css.map */

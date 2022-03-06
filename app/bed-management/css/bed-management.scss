@@ -1,0 +1,82 @@
+.border-none>.md-nav-bar {
+    border: none !important;
+}
+
+.metrics {
+    padding: 0px 15px;
+}
+
+.metric-space {
+    width: 6%;
+}
+
+.font-style {
+    font-family    : "Lato", Arial !important;
+    text-decoration: none;
+    text-align     : left;
+}
+
+$total-color  : RGB(0, 150, 136);
+$waiting-color: RGB(255, 152, 0);
+$blocked-color: RGB(244, 67, 54);
+
+.dashboard-status {
+    padding      : 8px;
+    border-radius: 7px;
+}
+
+.metric-count {
+    font-weight: bold;
+    font-size  : 22pt;
+}
+
+.metric-text {
+    padding-top: 8px;
+    font-size  : 9pt;
+    font-weight: 700;
+}
+
+.dashboard-status-waiting {
+    background-color: RGB(255, 152, 0, 0.15);
+    @extend .dashboard-status;
+}
+
+.waiting-count {
+    color: $waiting-color;
+    @extend .font-style, .metric-count;
+}
+
+.waiting-text {
+    color: $waiting-color;
+    @extend .font-style, .metric-text;
+}
+
+.dashboard-status-total {
+    background-color: RGB(0, 150, 136, 0.15);
+    @extend .dashboard-status;
+}
+
+.total-count {
+    color: $total-color;
+    @extend .font-style, .metric-count;
+}
+
+.total-text {
+    color: $total-color;
+    @extend .font-style, .metric-text;
+}
+
+.dashboard-status-blocked {
+    background-color: RGB(244, 67, 54, 0.15);
+    @extend .dashboard-status;
+}
+
+.blocked-count {
+    color: $blocked-color;
+    @extend .font-style, .metric-count;
+}
+
+.blocked-text {
+    color: $blocked-color;
+    @extend .font-style, .metric-text;
+}
