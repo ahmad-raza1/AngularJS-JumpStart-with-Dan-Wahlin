@@ -1,12 +1,13 @@
 'use-strict';
 (function () {
-  var app = angular.module('bedManagementApp', ['ngMaterial', 'ngMessages', 'ui.router', 'ngRoute']);
+  var app = angular.module('bedManagementApp', ['ngMaterial', 'ngMessages', 'ui.router', 'ngRoute', 'angularCSS']);
   app.config(($routeProvider) => {
     $routeProvider.
       when('/', {
         templateUrl: 'app/bed-management/bed-management.html',
         controller: 'BedManagementController',
-        controllerAs: 'ctrl'
+        controllerAs: 'ctrl',
+        css: 'app/bed-management/css/bed-management.css'
       }).
       otherwise({
         redirectTo: '/'
