@@ -16,37 +16,37 @@
         </div>
         <span flex></span>
 
-        <button track-click-event="Bed Management - Create Request" id="createRequestBtn"
+        <button track-click-event="Bed Management - Create Request" id="createRequestBtn" style="margin: 0;"
             class="md-button md-raised ladda-button ladda-done-button height-3px" data-style="slide-left" layout="row"
             layout-align="space-around center">
-            <i class="material-icons button-white-icon" aria-hidden="true">add_circle</i>
+            <i class="material-icons button-white-icon" style="margin-right: 4px;" aria-hidden="true">add_circle</i>
             <span>CREATE REQUEST</span>
         </button>
     </div>
 
     <!-- metrics -->
-    <div class="metrics" layout="row" layout-align="space-between center">
-        <div flex="20" layout="column" class="dashboard-status-total">
+    <div class="metrics" layout="row">
+        <div layout="column" class="dashboard-status-total">
             <div class='total-count'>25</div>
             <div class='total-text'>Semi Private</div>
         </div>
-        <div class="spacer"></div>
-        <div flex="20" layout="column" class="dashboard-status-total">
+        <!-- <span class="spacer"></span> -->
+        <div layout="column" class="dashboard-status-total">
             <div class='total-count'>48</div>
             <div class='total-text'>Deluxe</div>
         </div>
-        <div class="spacer"></div>
-        <div flex="20" layout="column" class="dashboard-status-total">
+        <!-- <span class="spacer"></span> -->
+        <div layout="column" class="dashboard-status-total">
             <div class='total-count'>79</div>
             <div class='total-text'>General</div>
         </div>
-        <div class="spacer"></div>
-        <div flex="20" layout="column" class="dashboard-status-total">
+        <!-- <span class="spacer"></span> -->
+        <div layout="column" class="dashboard-status-total">
             <div class='total-count'>08</div>
             <div class='total-text'>VIP</div>
         </div>
-        <div class="spacer"></div>
-        <div flex="20" layout="column" class="dashboard-status-blocked">
+        <!-- <span class="spacer"></span> -->
+        <div layout="column" class="dashboard-status-blocked">
             <div class='blocked-count'>06</div>
             <div class='blocked-text'>Blocked</div>
         </div>
@@ -54,25 +54,25 @@
 
     <!-- content -->
     <div ng-show="viewBy==='viewByWard'" id="example" class="margin-bottom-16">
-        <kendo-tabstrip>
+        <!-- <kendo-tabstrip>
             <ul class="height-40">
                 <li class="k-state-active">Wards</li>
             </ul>
-        </kendo-tabstrip>
+        </kendo-tabstrip> -->
         <!-- Ward Grid -->
         <kendo-grid options="mainGridOptions">
             <div k-detail-template>
                 <kendo-tabstrip>
-                    <ul class="height-40">
+                    <!-- <ul class="height-40">
                         <li class="k-state-active">Rooms</li>
-                    </ul>
+                    </ul> -->
                     <!-- Room Grid -->
                     <div kendo-grid k-options="detailGridOptions(dataItem)">
                         <div k-detail-template>
                             <kendo-tabstrip>
-                                <ul class="height-40">
+                                <!-- <ul class="height-40">
                                     <li class="k-state-active">Beds</li>
-                                </ul>
+                                </ul> -->
                                 <!-- Bed Grid -->
                                 <div kendo-grid k-options="detailGridOptions1(dataItem)"></div>
                             </kendo-tabstrip>

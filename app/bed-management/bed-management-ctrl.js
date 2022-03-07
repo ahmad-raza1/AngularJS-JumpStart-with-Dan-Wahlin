@@ -61,8 +61,10 @@
                         { field: "bed", title: "Bed", width: "190px" },
                         { field: "patient", title: "Patient", width: "190px" },
                         { field: "status", title: "Status", width: "190px" },
-                        {field: "",
-                        template: "<md-icon class='material-icons'>more_vert</md-icon>"}
+                        {
+                            field: "",
+                            template: "<md-icon class='material-icons'>more_vert</md-icon>"
+                        }
                     ]
                 };
             };
