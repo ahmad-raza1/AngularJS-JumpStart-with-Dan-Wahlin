@@ -1,6 +1,6 @@
 'use-strict';
 (function () {
-  var app = angular.module('bedManagementApp', ['ngMaterial', 'ngMessages', 'ui.router', 'ngRoute', 'angularCSS']);
+  var app = angular.module('bedManagementApp', ['ngMaterial', 'ngMessages', 'ui.router', 'ngRoute', 'angularCSS', 'kendo.directives']);
   app.config(($routeProvider) => {
     $routeProvider.
       when('/', {

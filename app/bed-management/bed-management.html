@@ -1,47 +1,51 @@
-<div class="container" ng-cloak>
-
-    <div layout="row">
-        <div class="tabs">
-            <md-content>
-                <md-nav-bar layout="row" md-no-ink-bar="true" md-border-bottom="border" md-selected-nav-item="viewBy"
-                    class="border-none" nav-bar-aria-label="navigation links">
-                    <md-nav-item md-nav-click="goto('viewByWard')" name="viewByWard">
-                        Page One
-                    </md-nav-item>
-                    <md-nav-item md-nav-click="goto('viewByRoomType')" name="viewByRoomType">
-                        Page Two
-                    </md-nav-item>
-                    <md-nav-item md-nav-click="goto('viewByBed')" name="viewByBed">
-                        Page Three
-                    </md-nav-item>
-                </md-nav-bar>
-            </md-content>
+<div class="container padding-16" ng-cloak>
+    <!-- pills (view by) and create request -->
+    <div layout="row" class="pill-container">
+        <div class="ward-pill" ng-click="goto('viewByWard')" ng-class="{'selected-pill': viewBy=='viewByWard'}">
+            <span>View By Wards</span>
+        </div>
+        <div class="pill" ng-click="goto('viewByRoomType')" ng-class="{'selected-pill': viewBy=='viewByRoomType'}">
+            <span>View By Room Type</span>
+        </div>
+        <div class="bed-pill" ng-click="goto('viewByBed')" ng-class="{'selected-pill': viewBy=='viewByBed'}">
+            <span>ViewBy Bed</span>
+        </div>
+        <div class="requests-pill" ng-click="goto('requests')" ng-class="{'selected-pill': viewBy=='requests'}">
+            <span>ViewBy Bed</span>
+            <span class="requests-count">03</span>
         </div>
         <span flex></span>
-        <button class="create-action">lorem</button>
+
+        <button track-click-event="Bed Management - Create Request" id="createRequestBtn"
+            class="md-button md-raised ladda-button ladda-done-button height-3px" data-style="slide-left" layout="row"
+            layout-align="space-around center">
+            <i class="material-icons button-white-icon" aria-hidden="true">add_circle</i>
+            <span>CREATE REQUEST</span>
+        </button>
     </div>
 
+    <!-- metrics -->
     <div class="metrics" layout="row" layout-align="space-between center">
         <div flex="20" layout="column" class="dashboard-status-total">
-            <div class='total-count'>13</div>
-            <div class='total-text'>Waiting</div>
+            <div class='total-count'>25</div>
+            <div class='total-text'>Semi Private</div>
         </div>
-        <div class="metric-space"></div>
-        <div flex="20" layout="column" class="dashboard-status-waiting">
-            <div class='waiting-count'>13</div>
-            <div class='waiting-text'>Waiting</div>
+        <div class="spacer"></div>
+        <div flex="20" layout="column" class="dashboard-status-total">
+            <div class='total-count'>48</div>
+            <div class='total-text'>Deluxe</div>
         </div>
-        <div class="metric-space"></div>
-        <div flex="20" layout="column" class="dashboard-status-waiting">
-            <div class='waiting-count'>13</div>
-            <div class='waiting-text'>Waiting</div>
+        <div class="spacer"></div>
+        <div flex="20" layout="column" class="dashboard-status-total">
+            <div class='total-count'>79</div>
+            <div class='total-text'>General</div>
         </div>
-        <div class="metric-space"></div>
-        <div flex="20" layout="column" class="dashboard-status-waiting">
-            <div class='waiting-count'>13</div>
-            <div class='waiting-text'>Waiting</div>
+        <div class="spacer"></div>
+        <div flex="20" layout="column" class="dashboard-status-total">
+            <div class='total-count'>08</div>
+            <div class='total-text'>VIP</div>
         </div>
-        <div class="metric-space"></div>
+        <div class="spacer"></div>
         <div flex="20" layout="column" class="dashboard-status-blocked">
             <div class='blocked-count'>06</div>
             <div class='blocked-text'>Blocked</div>
@@ -49,8 +53,38 @@
     </div>
 
     <!-- content -->
-    <div ng-show="viewBy==='viewByWard'">viewByWard Div</div>
-    <div ng-show="viewBy==='viewByRoomType'">viewByRoom Div</div>
-    <div ng-show="viewBy==='viewByBed'">viewByBed Div</div>
+    <div ng-show="viewBy==='viewByWard'" id="example" class="margin-bottom-16">
+        <kendo-tabstrip>
+            <ul class="height-40">
+                <li class="k-state-active">Wards</li>
+            </ul>
+        </kendo-tabstrip>
+        <!-- Ward Grid -->
+        <kendo-grid options="mainGridOptions">
+            <div k-detail-template>
+                <kendo-tabstrip>
+                    <ul class="height-40">
+                        <li class="k-state-active">Rooms</li>
+                    </ul>
+                    <!-- Room Grid -->
+                    <div kendo-grid k-options="detailGridOptions(dataItem)">
+                        <div k-detail-template>
+                            <kendo-tabstrip>
+                                <ul class="height-40">
+                                    <li class="k-state-active">Beds</li>
+                                </ul>
+                                <!-- Bed Grid -->
+                                <div kendo-grid k-options="detailGridOptions1(dataItem)"></div>
+                            </kendo-tabstrip>
+                        </div>
+                    </div>
+                </kendo-tabstrip>
+            </div>
+        </kendo-grid>
+    </div>
+    <!-- ------- -->
+    <div ng-show="viewBy==='viewByRoomType'">viewByRoom Container</div>
+    <div ng-show="viewBy==='viewByBed'">viewByBed Container</div>
+    <div ng-show="viewBy==='requests'">requests Container</div>
 
 </div>

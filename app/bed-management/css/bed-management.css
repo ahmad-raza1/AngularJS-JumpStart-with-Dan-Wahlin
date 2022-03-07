@@ -1,70 +1,129 @@
-.border-none > .md-nav-bar {
-  border: none !important;
+.padding-16 {
+  padding: 16px;
 }
 
-.metrics {
-  padding: 0px 15px;
+.padding-bottom-16, .metrics {
+  padding-bottom: 16px;
 }
 
-.metric-space {
+.margin-bottom-16, .pill-container {
+  margin-bottom: 16px;
+}
+
+.spacer {
   width: 6%;
 }
 
-.font-style, .waiting-count, .waiting-text, .total-count, .total-text, .blocked-count, .blocked-text {
+.font-style, .total-count, .total-text, .blocked-count, .blocked-text {
   font-family: "Lato", Arial !important;
   text-decoration: none;
   text-align: left;
 }
 
-.dashboard-status, .dashboard-status-waiting, .dashboard-status-total, .dashboard-status-blocked {
-  padding: 8px;
-  border-radius: 7px;
+.dashboard-status, .dashboard-status-total, .dashboard-status-blocked {
+  height: 64px;
+  padding-left: 16px;
+  border-radius: 6px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.metric-count, .waiting-count, .total-count, .blocked-count {
+.metric-count, .total-count, .blocked-count {
   font-weight: bold;
-  font-size: 22pt;
+  font-size: 24px;
 }
 
-.metric-text, .waiting-text, .total-text, .blocked-text {
-  padding-top: 8px;
-  font-size: 9pt;
-  font-weight: 700;
-}
-
-.dashboard-status-waiting {
-  background-color: RGB(255, 152, 0, 0.15);
-}
-
-.waiting-count {
-  color: RGB(255, 152, 0);
-}
-
-.waiting-text {
-  color: RGB(255, 152, 0);
+.metric-text, .total-text, .blocked-text {
+  font-size: 12px;
+  padding-top: 6px;
 }
 
 .dashboard-status-total {
-  background-color: RGB(0, 150, 136, 0.15);
+  background-color: rgba(96, 125, 139, 0.1);
 }
 
 .total-count {
-  color: RGB(0, 150, 136);
+  color: #607D8B;
 }
 
 .total-text {
-  color: RGB(0, 150, 136);
+  color: #607D8B;
 }
 
 .dashboard-status-blocked {
-  background-color: RGB(244, 67, 54, 0.15);
+  background-color: rgba(244, 67, 54, 0.1);
 }
 
 .blocked-count {
-  color: RGB(244, 67, 54);
+  color: #F44336;
 }
 
 .blocked-text {
-  color: RGB(244, 67, 54);
+  color: #F44336;
+}
+
+.pill-container {
+  height: 40px;
+}
+
+.pill, .ward-pill, .bed-pill, .requests-pill {
+  background-color: #0000000D;
+  border: 1px solid #E0E0E0;
+  font-size: 14px;
+  padding: 0px 24px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ward-pill {
+  border-radius: 20px 0px 0px 20px;
+}
+
+.bed-pill {
+  border-radius: 0px 20px 20px 0px;
+}
+
+.requests-pill {
+  margin-left: 17px;
+  border-radius: 22px;
+}
+
+.requests-count {
+  background-color: #616161;
+  color: #FAFAFA;
+  border-radius: 10px;
+  margin-left: 9px;
+  width: 32px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 12px;
+}
+
+.selected-pill {
+  color: #FFFFFF;
+  background-color: #616161;
+  border: 1px solid #424242;
+}
+
+.selected-pill .requests-count {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.height-40 {
+  height: 40px;
 }
 /*# sourceMappingURL=bed-management.css.map */

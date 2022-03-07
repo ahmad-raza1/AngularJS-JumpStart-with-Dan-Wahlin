@@ -1,12 +1,20 @@
-.border-none>.md-nav-bar {
-    border: none !important;
+.padding-16 {
+    padding: 16px;
+}
+
+.padding-bottom-16 {
+    padding-bottom: 16px;
+}
+
+.margin-bottom-16 {
+    margin-bottom: 16px;
 }
 
 .metrics {
-    padding: 0px 15px;
+    @extend .padding-bottom-16;
 }
 
-.metric-space {
+.spacer {
     width: 6%;
 }
 
@@ -16,43 +24,28 @@
     text-align     : left;
 }
 
-$total-color  : RGB(0, 150, 136);
-$waiting-color: RGB(255, 152, 0);
-$blocked-color: RGB(244, 67, 54);
+$total-color  : #607D8B;
+$blocked-color: #F44336;
 
 .dashboard-status {
-    padding      : 8px;
-    border-radius: 7px;
+    height         : 64px;
+    padding-left   : 16px;
+    border-radius  : 6px;
+    justify-content: center;
 }
 
 .metric-count {
     font-weight: bold;
-    font-size  : 22pt;
+    font-size  : 24px;
 }
 
 .metric-text {
-    padding-top: 8px;
-    font-size  : 9pt;
-    font-weight: 700;
-}
-
-.dashboard-status-waiting {
-    background-color: RGB(255, 152, 0, 0.15);
-    @extend .dashboard-status;
-}
-
-.waiting-count {
-    color: $waiting-color;
-    @extend .font-style, .metric-count;
-}
-
-.waiting-text {
-    color: $waiting-color;
-    @extend .font-style, .metric-text;
+    font-size  : 12px;
+    padding-top: 6px;
 }
 
 .dashboard-status-total {
-    background-color: RGB(0, 150, 136, 0.15);
+    background-color: rgba($color: $total-color, $alpha: 0.1);
     @extend .dashboard-status;
 }
 
@@ -67,7 +60,7 @@ $blocked-color: RGB(244, 67, 54);
 }
 
 .dashboard-status-blocked {
-    background-color: RGB(244, 67, 54, 0.15);
+    background-color: rgba($color: $blocked-color, $alpha: 0.1);
     @extend .dashboard-status;
 }
 
@@ -79,4 +72,62 @@ $blocked-color: RGB(244, 67, 54);
 .blocked-text {
     color: $blocked-color;
     @extend .font-style, .metric-text;
+}
+
+.pill-container {
+    height: 40px;
+    @extend .margin-bottom-16;
+}
+
+.pill {
+    background-color: #0000000D;
+    border          : 1px solid #E0E0E0;
+    font-size       : 14px;
+    padding         : 0px 24px;
+    cursor          : pointer;
+    display         : flex;
+    align-items     : center;
+}
+
+.ward-pill {
+    border-radius: 20px 0px 0px 20px;
+    @extend .pill;
+}
+
+.bed-pill {
+    border-radius: 0px 20px 20px 0px;
+    @extend .pill;
+}
+
+.requests-pill {
+    margin-left  : 17px;
+    border-radius: 22px;
+    @extend .pill;
+}
+
+.requests-count {
+    background-color: #616161;
+    color           : #FAFAFA;
+    border-radius   : 10px;
+    margin-left     : 9px;
+    width           : 32px;
+    height          : 20px;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    font-size       : 12px;
+}
+
+.selected-pill {
+    color           : #FFFFFF;
+    background-color: #616161;
+    border          : 1px solid #424242;
+
+    .requests-count {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+}
+
+.height-40 {
+    height: 40px;
 }
