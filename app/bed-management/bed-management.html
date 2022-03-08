@@ -1,21 +1,23 @@
 <div class="container padding-16" ng-cloak>
-    <!-- pills (view by) and create request -->
-    <div layout="row" class="pill-container">
-        <div class="ward-pill" ng-click="goto('viewByWard')" ng-class="{'selected-pill': viewBy=='viewByWard'}">
-            <span>View By Wards</span>
-        </div>
-        <div class="pill" ng-click="goto('viewByRoomType')" ng-class="{'selected-pill': viewBy=='viewByRoomType'}">
-            <span>View By Room Type</span>
-        </div>
-        <div class="bed-pill" ng-click="goto('viewByBed')" ng-class="{'selected-pill': viewBy=='viewByBed'}">
-            <span>ViewBy Bed</span>
-        </div>
-        <div class="requests-pill" ng-click="goto('requests')" ng-class="{'selected-pill': viewBy=='requests'}">
-            <span>ViewBy Bed</span>
-            <span class="requests-count">03</span>
+    <div layout="row" class="header">
+        <!-- pills -->
+        <div class="pill-container" layout="row">
+            <div class="ward-pill" ng-click="goto('viewByWard')" ng-class="{'selected-pill': viewBy=='viewByWard'}">
+                <span>View By Wards</span>
+            </div>
+            <div class="pill" ng-click="goto('viewByRoomType')" ng-class="{'selected-pill': viewBy=='viewByRoomType'}">
+                <span>View By Room Type</span>
+            </div>
+            <div class="bed-pill" ng-click="goto('viewByBed')" ng-class="{'selected-pill': viewBy=='viewByBed'}">
+                <span>ViewBy Bed</span>
+            </div>
+            <div class="requests-pill" ng-click="goto('requests')" ng-class="{'selected-pill': viewBy=='requests'}">
+                <span>ViewBy Bed</span>
+                <span class="requests-count">03</span>
+            </div>
         </div>
         <span flex></span>
-
+        <!-- create request button -->
         <button track-click-event="Bed Management - Create Request" id="createRequestBtn" style="margin: 0;"
             class="md-button md-raised ladda-button ladda-done-button height-3px" data-style="slide-left" layout="row"
             layout-align="space-around center">
@@ -54,25 +56,14 @@
 
     <!-- content -->
     <div ng-show="viewBy==='viewByWard'" id="example" class="margin-bottom-16">
-        <!-- <kendo-tabstrip>
-            <ul class="height-40">
-                <li class="k-state-active">Wards</li>
-            </ul>
-        </kendo-tabstrip> -->
         <!-- Ward Grid -->
         <kendo-grid options="mainGridOptions">
             <div k-detail-template>
                 <kendo-tabstrip>
-                    <!-- <ul class="height-40">
-                        <li class="k-state-active">Rooms</li>
-                    </ul> -->
                     <!-- Room Grid -->
                     <div kendo-grid k-options="detailGridOptions(dataItem)">
                         <div k-detail-template>
                             <kendo-tabstrip>
-                                <!-- <ul class="height-40">
-                                    <li class="k-state-active">Beds</li>
-                                </ul> -->
                                 <!-- Bed Grid -->
                                 <div kendo-grid k-options="detailGridOptions1(dataItem)"></div>
                             </kendo-tabstrip>
@@ -88,3 +79,23 @@
     <div ng-show="viewBy==='requests'">requests Container</div>
 
 </div>
+
+
+
+<script id="rowTemplate" type="text/x-kendo-tmpl">
+    <tr>
+        <td class='grid-col'>{{dataItem.bed}}</td>
+        <td class='grid-col'>{{dataItem.patient}}</td>
+        <td class='grid-col font-bold' ng-style="{{getStatusColorCode(dataItem.status)}}">{{dataItem.status}}</td>
+        <td class='grid-col' style="width: 48px;">
+            <md-icon class='material-icons'>info</md-icon>
+        </td>
+        <td class='grid-col' layout="row" layout-align="end center" style="gap: 20px; min-width: fit-content;">
+            <md-button class="md-raised btn-icon-text-margin" aria-label="Reserve Bed" layout="row">
+                <md-icon>done</md-icon>
+                <span>RESERVE</span>
+            </md-button>
+            <md-icon class='material-icons' style="width: 24px; margin: 0px;">more_vert</md-icon>
+        </td>
+    </tr>
+</script>

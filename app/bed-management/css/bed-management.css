@@ -6,13 +6,21 @@
   padding-bottom: 16px;
 }
 
-.margin-bottom-16, .pill-container {
+.margin-bottom-16, .metrics, .header {
   margin-bottom: 16px;
 }
 
+.font-bold {
+  font-weight: bold !important;
+}
+
 .metrics {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  display: -ms-grid;
+  display: grid;
+  /* grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); */
+  -ms-grid-columns: (minmax(140px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-gap: 17px;
 }
 
 .spacer {
@@ -33,8 +41,6 @@
       -ms-flex-pack: center;
           justify-content: center;
   min-width: 152px;
-  margin-bottom: 16px;
-  margin-right: 17px;
 }
 
 .metric-count, .total-count, .blocked-count {
@@ -71,6 +77,20 @@
   color: #F44336;
 }
 
+.header {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 17px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pill, .ward-pill, .bed-pill, .requests-pill,
+md-icon {
+  cursor: pointer;
+}
+
 .pill-container {
   height: 40px;
 }
@@ -80,13 +100,15 @@
   border: 1px solid #E0E0E0;
   font-size: 14px;
   padding: 0px 24px;
-  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
 }
 
 .ward-pill {
@@ -135,10 +157,39 @@
   height: 40px;
 }
 
+.md-icon {
+  margin: 0 !important;
+}
+
+.btn-icon-text-margin {
+  padding: 4px 8px;
+  margin: 0px !important;
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
+.btn-icon-text-margin md-icon {
+  margin-right: 4px;
+}
+
+/* kendo grid customizations */
 .k-grid-header {
   height: 0;
   border-bottom-width: 0;
   display: none;
   overflow: hidden;
+}
+
+.k-grid-content {
+  overflow-y: hidden;
+}
+
+.k-grid-content-expander {
+  width: inherit !important;
+}
+
+.k-grid td {
+  border-width: 0;
 }
 /*# sourceMappingURL=bed-management.css.map */
