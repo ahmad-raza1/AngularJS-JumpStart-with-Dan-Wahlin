@@ -1,13 +1,13 @@
 'use-strict';
 (function () {
-  var app = angular.module('bedManagementApp', ['ngMaterial', 'ngMessages', 'ui.router', 'ngRoute', 'angularCSS', 'kendo.directives']);
+  var app = angular.module('radiationOncologyApp', ['ngMaterial', 'ngMessages', 'ui.router', 'ngRoute', 'angularCSS', 'kendo.directives']);
   app.config(($routeProvider) => {
     $routeProvider.
       when('/', {
-        templateUrl: 'app/bed-management/bed-management.html',
-        controller: 'BedManagementController',
+        templateUrl: 'app/radiation-oncology/radiation-oncology.html',
+        controller: 'RadiationOncologyController',
         controllerAs: 'ctrl',
-        css: 'app/bed-management/css/bed-management.css'
+        css: 'app/radiation-oncology/css/radiation-oncology.css'
       }).
       otherwise({
         redirectTo: '/'
