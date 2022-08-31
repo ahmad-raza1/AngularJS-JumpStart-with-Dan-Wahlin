@@ -1,4 +1,162 @@
-<div class="container padding-16" ng-cloak>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel adipisci explicabo mollitia optio perspiciatis nihil
-        ea quibusdam ab tempore quaerat. Sit error laborum earum tempore, omnis eum quia commodi eius.</p>
+<div class="container" ng-cloak>
+    <!-- header -->
+    <section layout="row" class="patient-header">
+        <!-- patient info -->
+        <div flex="70" layout="row" layout-align="start center" style="gap: 12px;" class="pt-info">
+            <img src="" alt="img">
+            <div layout="column" class="gap-3">
+                <div layout="row" class="font-16 bold gap-8" style="align-items: flex-end;">
+                    <div>Julie Paula Whitman</div>
+                    <md-icon>info</md-icon>
+                </div>
+                <div class="font-12">18-01-100000&nbsp;<span class="light-text">55y, F, USA</span> </div>
+                <div class="font-12"><span class="light-text">CNIC&nbsp;</span>11111-1111111-1&nbsp;<span
+                        class="light-text">Phone&nbsp;</span>+923001234567</div>
+            </div>
+        </div>
+        <!-- consultant -->
+        <div layout="column" layout-align="center start" class="doctor-info">
+            <div class="font-12 color-blue">Consultant</div>
+            <div class="font-14">Dr. Chang Michael</div>
+        </div>
+    </section>
+    <!-- Radiotherapy Detail -->
+    <section layout="row" style="height: calc(100vh - 90px);">
+        <div flex class="pd-16" style="overflow-y: auto;">
+            <div layout="column">
+                <div class="title-bg border-radius-top">Radiotherapy Detail</div>
+                <div class="border-radius-bottom shadow gap-8">
+                    <div layout="column" class="pd-16"
+                        ng-repeat="radiotherapyDetail in radiotherapyDetails track by $index" ng-init="$index_i=$index">
+                        <!-- <div>{{$index_i}}</div> -->
+                        <md-icon class="color-red" ng-show="radiotherapyDetails.length>1"
+                            ng-click="removeRadiotherapySite($index_i)" style="align-self: flex-end;">remove_circle
+                        </md-icon>
+                        <div layout="row" layout-align="start center" style="gap: 16px;">
+                            <div flex>
+                                <md-input-container>
+                                    <label>Radiotherapy Site</label>
+                                    <md-select ng-model="someModel">
+                                        <md-option ng-value="opt" ng-repeat="opt in demoList">{{ opt }}</md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            <div flex>
+                                <md-input-container>
+                                    <label>Planning Technique</label>
+                                    <md-select ng-model="someModel">
+                                        <md-option ng-value="opt" ng-repeat="opt in demoList">{{ opt }}</md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            <div flex>
+                                <md-input-container>
+                                    <label>Radiation Technique</label>
+                                    <md-select ng-model="someModel">
+                                        <md-option ng-value="opt" ng-repeat="opt in demoList">{{ opt }}</md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                        </div>
+                        <form name="phaseDetails" ng-repeat="phase in radiotherapyDetail.phases track by $index">
+                            <!-- <div>{{$index}}</div> -->
+                            <div layout="row" layout-align="start center" style="gap: 16px;">
+                                <div flex>
+                                    <md-input-container>
+                                        <label>Phase {{$index+1}}</label>
+                                        <span style="position: absolute; right: 0; top: 10px;">cGy</span>
+                                        <input ng-model="phase.dose" name="dose_{{$index}}" maxlength="5"
+                                            placeholder="Dose" ng-change="calcTotalDose($index_i)"></input>
+                                    </md-input-container>
+                                </div>
+                                <div flex style="display: inline-flex; align-items: center; gap: 8px;">
+                                    <md-input-container>
+                                        <label></label>
+                                        <input ng-model="phase.fraction" name="fraction_{{$index}}" maxlength="5"
+                                            placeholder="Fraction" ng-change="calcTotalDose($index_i)"></input>
+                                    </md-input-container>
+                                    <span style="margin-bottom: 15px;">
+                                        <md-icon class="color-blue" ng-click="addPhaseRow($index_i, $index)"
+                                            name="add_icon_{{$index}}"
+                                            ng-show="radiotherapyDetail.phases.length-1==$index && radiotherapyDetail.phases.length<3">
+                                            add_circle
+                                        </md-icon>
+                                        <md-icon class="color-red" ng-click="removePhaseRow($index_i, $index)"
+                                            name="remove_icon_{{$index}}"
+                                            ng-show="!(radiotherapyDetail.phases.length-1==$index) || radiotherapyDetail.phases.length>=3">
+                                            remove_circle
+                                        </md-icon>
+                                    </span>
+                                </div>
+                                <div flex>
+                                    <div layout="column" layout-align="center center" class="total-dose"
+                                        ng-show="$index==0">
+                                        <div>
+                                            <span class="font-24 bold">{{radiotherapyDetail.totalDose > 0 ?
+                                                radiotherapyDetail.totalDose :
+                                                '---'}}</span>&nbsp;<span class="light-text font-16"
+                                                ng-show="totalDoses">cGy</span>
+                                        </div>
+                                        <div class="font-12 light-text">
+                                            Total Dose
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="space-line" ng-show="$index_i<radiotherapyDetails.length"></div>
+                        <md-button class="add-site-btn" ng-click="addRadiotherapySite($index_i)"
+                            ng-show="radiotherapyDetails.length-1==$index_i">
+                            <md-icon>add_circle</md-icon>
+                            <span>ADD RADIOTHERAPY SITE</span>
+                        </md-button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div flex class="right-section gap-8" layout="column">
+            <div layout="row" layout-align="start center" style="gap: 16px;">
+                <div flex>
+                    <md-input-container>
+                        <label>Dropdown</label>
+                        <md-select ng-model="someModel">
+                            <md-option ng-value="opt" ng-repeat="opt in demoList">{{ opt }}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div flex>
+                    <md-input-container>
+                        <label>Dropdown</label>
+                        <md-select ng-model="someModel">
+                            <md-option ng-value="opt" ng-repeat="opt in demoList">{{ opt }}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div flex>
+                    <md-input-container>
+                        <label>Dropdown</label>
+                        <md-select ng-model="someModel">
+                            <md-option ng-value="opt" ng-repeat="opt in demoList">{{ opt }}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+            <div>
+                <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px;">
+                    <label>Text area</label>
+                    <textarea ng-model="user.biography" md-maxlength="150" md-select-on-focus
+                        placeholder="Type here"></textarea>
+                </md-input-container>
+            </div>
+            <div layout="column" class="gap-8">
+                <label>Anesthesia</label>
+                <md-radio-group ng-model="data.group1" style="display: inline-flex; gap: 16px;">
+                    <md-radio-button value="true">Yes</md-radio-button>
+                    <md-radio-button value="false">No</md-radio-button>
+                </md-radio-group>
+            </div>
+        </div>
+    </section>
 </div>

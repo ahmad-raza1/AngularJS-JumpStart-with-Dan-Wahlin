@@ -1,3 +1,131 @@
-.padding-16 {
+$color-blue      : rgba(0, 145, 234, 1);
+$color-red       : rgba(244, 67, 54, 1);
+$color-black     : rgba(0, 0, 0, 1);
+$color-gray      : rgba(117, 117, 117, 1);
+$color-light-gray: rgb(245, 245, 245);
+
+md-icon,
+md-radio-button {
+    margin: 0 !important;
+    cursor: pointer;
+}
+
+md-input-container {
+    width: 100%;
+}
+
+.gray-bg {
+    background: $color-light-gray 0% 0% no-repeat padding-box;
+}
+
+.color-blue {
+    color: $color-blue;
+}
+
+.color-red {
+    color: $color-red;
+}
+
+.font-12 {
+    font-size: 12px;
+}
+
+.font-14 {
+    font-size: 14px;
+}
+
+.font-16 {
+    color    : $color-blue;
+    font-size: 16px;
+}
+
+.font-24 {
+    font-size: 24px;
+}
+
+.pd-16 {
     padding: 16px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.light-text {
+    color: $color-gray;
+}
+
+.gap-3 {
+    gap: 3px;
+}
+
+.gap-8 {
+    gap: 8px;
+}
+
+.gap-16 {
+    gap: 16px;
+}
+
+.patient-header {
+    position: relative;
+    @extend .pd-16, .shadow;
+}
+
+.shadow {
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-info {
+    border       : 1px dashed #BDBDBD;
+    border-radius: 6px;
+    padding      : 7px 16px;
+    flex-grow    : 1;
+    @extend .bold, .gray-bg, .gap-3;
+}
+
+.title-bg {
+    background-color: rgba($color: $color-black, $alpha: 0.05);
+    @extend .bold, .pd-16;
+}
+
+.border-radius-top {
+    border-radius: 8px 8px 0px 0px;
+}
+
+.border-radius-bottom {
+    border-radius: 0px 0px 8px 8px;
+}
+
+.right-section {
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    @extend .gray-bg, .pd-16;
+}
+
+.total-dose {
+    border-radius   : 8px;
+    padding         : 7px 35px;
+    width           : fit-content;
+    margin          : -18px 0px 0px auto;
+    background-color: rgba($color: $color-black, $alpha: 0.05);
+}
+
+.space-line {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    margin    : 0px -16px;
+}
+
+.add-site-btn {
+    md-icon {
+        color: $color-blue;
+    }
+
+    border-radius   : 3px;
+    color           : $color-blue;
+    background-color: rgba($color: $color-blue, $alpha: 0.05);
+    width           : fit-content;
+    margin          : 16px auto 0 auto;
+    align-items     : center;
+    display         : flex;
+    @extend .gap-8;
 }

@@ -1,3 +1,123 @@
-.padding-16 {
+md-icon,
+md-radio-button {
+  margin: 0 !important;
+  cursor: pointer;
+}
+
+md-input-container {
+  width: 100%;
+}
+
+.gray-bg, .right-section, .doctor-info {
+  background: rgb(245, 245, 245) 0% 0% no-repeat padding-box;
+}
+
+.color-blue {
+  color: rgb(0, 145, 234);
+}
+
+.color-red {
+  color: rgb(244, 67, 54);
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-16 {
+  color: rgb(0, 145, 234);
+  font-size: 16px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.pd-16, .right-section, .title-bg, .patient-header {
   padding: 16px;
+}
+
+.bold, .title-bg, .doctor-info {
+  font-weight: bold;
+}
+
+.light-text {
+  color: rgb(117, 117, 117);
+}
+
+.gap-3, .doctor-info {
+  gap: 3px;
+}
+
+.gap-8, .add-site-btn {
+  gap: 8px;
+}
+
+.gap-16 {
+  gap: 16px;
+}
+
+.patient-header {
+  position: relative;
+}
+
+.shadow, .patient-header {
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-info {
+  border: 1px dashed #BDBDBD;
+  border-radius: 6px;
+  padding: 7px 16px;
+  flex-grow: 1;
+}
+
+.title-bg {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.border-radius-top {
+  border-radius: 8px 8px 0px 0px;
+}
+
+.border-radius-bottom {
+  border-radius: 0px 0px 8px 8px;
+}
+
+.right-section {
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.total-dose {
+  border-radius: 8px;
+  padding: 7px 35px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: -18px 0px 0px auto;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.space-line {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  margin: 0px -16px;
+}
+
+.add-site-btn {
+  border-radius: 3px;
+  color: rgb(0, 145, 234);
+  background-color: rgba(0, 145, 234, 0.05);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 16px auto 0 auto;
+  align-items: center;
+  display: flex;
+}
+.add-site-btn md-icon {
+  color: rgb(0, 145, 234);
 }/*# sourceMappingURL=radiation-oncology.css.map */
